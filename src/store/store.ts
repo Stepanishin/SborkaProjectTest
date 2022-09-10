@@ -1,10 +1,8 @@
 import {combineReducers, configureStore} from "@reduxjs/toolkit";
 import addCardSlice from './reducers/getProductToBasket'
-import showBasketSlice from './reducers/showBasket'
 
 const rootReducer = combineReducers({
-    addCardSlice,
-    showBasketSlice
+    addCardSlice
 })
 
 export const setupStore = () => {

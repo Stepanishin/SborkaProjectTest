@@ -5,8 +5,8 @@ type DefaultBasketType = {
     cards: ICard[]
 }
 
-const initialState : DefaultBasketType = {
-    cards: []   
+const initialState : DefaultBasketType = {  
+    cards: JSON.parse(sessionStorage?.getItem('cards')!) ? JSON.parse(sessionStorage?.getItem('cards')!) : []
 }
 
 export const addCardSlice = createSlice({
@@ -15,6 +15,7 @@ export const addCardSlice = createSlice({
     reducers: {
             addCard(state, action) {
                 state.cards = [...action.payload]
+                sessionStorage.setItem('cards', JSON.stringify(state.cards));
             },
         },
 })
